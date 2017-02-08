@@ -96,10 +96,12 @@ describe("About Objects", function () {
       var colouredCircle = new Circle(5);
       colouredCircle.colour = "red";
 
-      expect(simpleCircle.colour).toBe(undefined);
-      expect(colouredCircle.colour).toBe('red');
+      expect(simpleCircle.colour).toBe(undefined); //no property on color names color
+      expect(colouredCircle.colour).toBe('red'); //
 
-      Circle.prototype.describe = function () {
+      // this in context of method of object is this where method was called on//
+
+      Circle.prototype.describe = function () { //accessing prototype object of function //
         return "This circle has a radius of: " + this.radius;
       };
 

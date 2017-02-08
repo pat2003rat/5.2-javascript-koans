@@ -95,7 +95,29 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should count the ingredient occurrence (functional)", function () {
-    var ingredientCount = { "{ingredient name}": 0 };
+    //  { "{ingredient name}": 0 };
+    var ingredientCount = _.chain(products) //
+                       .map(function(pizza){
+                        return pizza.ingredients;
+                      })
+                      .flatten()
+                      .reduce(function(memo, ingredient){
+                      // / memo [ingredient] = (memo[ingredient] ? (memo[ingredient] + 1 : 1;
+                      // if (memo[ingredient]){
+                      //   memo[ingredient] += 1;
+                      // } else {
+                      //   memo [ingredient] = 1
+                      // }
+                        memo[ingredient] = (memo[ingredient] || 0) + 1;
+                       //access memo and find a property named by ingredient like artichoke... try and access that property of memo
+                          // memoization is accumulator  from underscore ... the item we are building up ingredient is each item in array memo is thing we are building each time
+                        return memo;
+                    }, { "{ingredient name}" :0 })
+                    .value();
+
+                    console.log(ingredientCount);
+                    expect(ingredientCount['mushrooms']).toBe(2);
+
 
     /* chain() together map(), flatten() and reduce() */
 
@@ -107,7 +129,6 @@ describe("About Applying What We Have Learnt", function() {
     //                  .reduce(function (sum, x) { return sum + x })
     //                  .value();
     //
-    // expect(ingredientCount['mushrooms']).toBe(undefined);
   });
 
 
