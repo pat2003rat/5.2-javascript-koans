@@ -1,3 +1,10 @@
+
+5.2 Koans
+
+This assignment was primarily for practice with testing frameworks like Jasmine. This assignment enabled me to understand basic JS syntax, creation and manipulation of JS arrays and objects, functional programming in JS, and object oriented programming in JS.
+
+-JavaScript
+
 # javascript-koans
 Based on Edgecase's fantastic 
 [Ruby koans](http://github.com/edgecase/ruby_koans), the goal of the
